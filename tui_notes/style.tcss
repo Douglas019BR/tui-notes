@@ -1,0 +1,30 @@
+/* Main application styles */
+
+Screen {
+    background: $surface;
+}
+
+#notes-grid {
+    grid-size: 3 3;
+    grid-gutter: 1;
+    padding: 1;
+    height: 1fr;
+}
+
+PostIt {
+    height: 100%;
+    width: 100%;
+    background: #fff59d;
+    border: solid #fbc02d;
+    padding: 1;
+}
+
+PostIt:odd {
+    background: #a5d6a7;
+    border: solid #388e3c;
+}
+
+.post-it-content {
+    color: #212121;
+    text-style: none;
+}
