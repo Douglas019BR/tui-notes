@@ -176,33 +176,33 @@ DEFAULT_NOTE_TITLE = "Untitled Note"
 ## Implementation Phases
 
 ### Phase 1: Foundation
-- [ ] Set up project structure
-- [ ] Implement data models
+- [x] Set up project structure
+- [x] Implement data models
 - [ ] Create storage layer with JSON persistence
 - [ ] Write basic tests for storage
 
 ### Phase 2: Basic UI
-- [ ] Create main Textual app skeleton
-- [ ] Implement single note card widget
-- [ ] Add note list container
+- [x] Create main Textual app skeleton
+- [x] Implement single note card widget
+- [x] Add note list container
 - [ ] Test loading/saving notes
 
 ### Phase 3: Core Features
-- [ ] Add note creation
-- [ ] Implement note editing
-- [ ] Add note deletion
-- [ ] Implement keyboard shortcuts
+- [x] Add note creation
+- [x] Implement note editing
+- [x] Add note deletion
+- [x] Implement keyboard shortcuts
 
 ### Phase 4: Advanced Features
-- [ ] Note reordering
+- [x] Note reordering
 - [ ] Clear note content
 - [ ] Search/filter notes
 - [ ] Note categories/tags (future)
 
 ### Phase 5: Polish
 - [ ] Error handling
-- [ ] User feedback (toasts/notifications)
-- [ ] Themes/colors
+- [x] User feedback (toasts/notifications)
+- [x] Themes/colors
 - [ ] Performance optimization
 - [ ] Comprehensive testing
 
@@ -275,6 +275,35 @@ mypy tui_notes/
 - **Why Textual over Curses?**: Modern, better DX, reactive model, active development
 - **Why local files over cloud?**: Privacy, offline-first, simplicity, no dependencies
 - **Data location**: User home directory follows Unix convention for user data
+- **Swap by data, not by widget**: Textual não suporta `move_before` — swap de post-its troca title/content entre widgets
+- **Drag & drop via mouse events**: Textual não tem drag nativo — implementação parcial via `on_mouse_down`/`on_mouse_up` (não funcional ainda)
+
+## Current Implementation Status
+
+### Concluído (PLAN 01-05)
+- ✅ Estrutura do projeto com pyproject.toml, entry point `tui-notes`
+- ✅ Grid 3x3 com widget PostIt (Container, propriedades reativas)
+- ✅ 6 cores alternadas (amarelo, verde, azul, rosa, laranja, roxo)
+- ✅ EmptySlot placeholder em posições vazias
+- ✅ Modal de edição (EditPostItScreen) com Input + TextArea
+- ✅ Adicionar (`a`) e remover (`d`, com confirmação) post-its
+- ✅ Rearranjo automático ao remover
+- ✅ Modo Move (`m` + setas) com swap de dados entre post-its
+- ✅ Navegação por setas no modo normal
+- ✅ Feedback visual: foco (borda branca), moving (borda laranja), dragging (borda azul)
+
+### Pendente
+- ⚠️ Drag & drop (implementado mas não funcional)
+- ⚠️ Swap de post-it com EmptySlot no modo Move
+- ⚠️ Atalhos numéricos (1-9) para posição direta
+- 📋 PLAN 06: Persistência (JSON em ~/.tui-notes/)
+- 📋 PLAN 07: Polish
+- 📋 PLAN 08: Testing
+- 📋 PLAN 09: Deployment
+
+### Known Issues
+- Grid pode ficar com menos de 9 filhos após múltiplas operações de add/delete
+- Drag & drop: mouse_down inicia mas mouse_up não finaliza corretamente o swap
 
 ## Future Enhancements
 

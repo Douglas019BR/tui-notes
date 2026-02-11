@@ -14,17 +14,157 @@ Screen {
 PostIt {
     height: 100%;
     width: 100%;
-    background: #fff59d;
-    border: solid #fbc02d;
-    padding: 1;
+    padding: 0 1;
+    border: solid #888;
 }
 
-PostIt:odd {
+/* Yellow */
+.post-it-0 {
+    background: #fff59d;
+    border: solid #fbc02d;
+}
+
+/* Green */
+.post-it-1 {
     background: #a5d6a7;
     border: solid #388e3c;
 }
 
+/* Blue */
+.post-it-2 {
+    background: #90caf9;
+    border: solid #1976d2;
+}
+
+/* Pink */
+.post-it-3 {
+    background: #f48fb1;
+    border: solid #c2185b;
+}
+
+/* Orange */
+.post-it-4 {
+    background: #ffcc80;
+    border: solid #f57c00;
+}
+
+/* Purple */
+.post-it-5 {
+    background: #ce93d8;
+    border: solid #7b1fa2;
+}
+
+.post-it-title {
+    text-style: bold;
+    color: #212121;
+    height: auto;
+    padding: 0 0 1 0;
+}
+
 .post-it-content {
     color: #212121;
-    text-style: none;
+    height: 1fr;
+}
+
+/* Focus indicator */
+PostIt:focus {
+    border: double #fff;
+}
+
+/* Moving indicator */
+PostIt.moving {
+    border: double #ff5722;
+    opacity: 0.9;
+}
+
+PostIt.dragging {
+    border: double #2196f3;
+    opacity: 0.7;
+}
+
+/* Edit Modal */
+#edit-modal {
+    width: 60;
+    height: 24;
+    background: $surface;
+    border: thick $primary;
+    padding: 1 2;
+}
+
+#edit-modal-title {
+    text-style: bold;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 0 0 1 0;
+}
+
+#edit-title-input {
+    width: 100%;
+    margin: 0 0 1 0;
+}
+
+#edit-content-input {
+    width: 100%;
+    height: 1fr;
+    margin: 0 0 1 0;
+}
+
+#edit-buttons {
+    width: 100%;
+    height: auto;
+    align-horizontal: right;
+}
+
+#edit-buttons Button {
+    margin: 0 0 0 1;
+}
+
+EditPostItScreen {
+    align: center middle;
+}
+
+/* Empty slot placeholder */
+.empty-slot {
+    height: 100%;
+    width: 100%;
+    padding: 0 1;
+    border: dashed #555;
+    color: #666;
+    content-align: center middle;
+    text-style: italic;
+}
+
+.empty-slot:focus {
+    border: dashed #aaa;
+}
+
+/* Confirm Modal */
+#confirm-modal {
+    width: 50;
+    height: 10;
+    background: $surface;
+    border: thick $error;
+    padding: 1 2;
+}
+
+#confirm-message {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 1 0;
+}
+
+#confirm-buttons {
+    width: 100%;
+    height: auto;
+    align-horizontal: center;
+}
+
+#confirm-buttons Button {
+    margin: 0 1;
+}
+
+ConfirmScreen {
+    align: center middle;
 }
