@@ -1,74 +1,90 @@
-# TUI Notes
+# TUI Notes 📝
 
-A terminal-based notes application for quick note-taking and organization, right from your command line.
+A terminal-based post-it notes application — organize your thoughts in a 3×3 grid, right from the command line.
 
-## Overview
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-TUI Notes is a lightweight, keyboard-driven notes manager that works entirely in your terminal. Think of it as multiple post-it notes in your CLI - create, edit, organize, and manage notes without ever leaving your terminal environment.
+## Features
 
-## Features (Planned)
-
-- **Multiple Notes**: Create and manage multiple notes simultaneously
-- **Persistent Storage**: All notes are saved automatically and persist between sessions
-- **Easy Organization**: Reorder notes to prioritize what matters
-- **Clean Interface**: Intuitive terminal UI built with modern TUI libraries
-- **Quick Access**: Launch from anywhere in your terminal
-- **Note Management**: 
-  - Add new notes with custom titles
-  - Edit note content
-  - Delete notes when no longer needed
-  - Clear note content while keeping the note
-  - Reorganize note order
+- **3×3 Post-it Grid** — Up to 9 notes displayed simultaneously
+- **6 Colors** — Yellow, Green, Blue, Pink, Orange, Purple (press `c` to change)
+- **Persistent Storage** — Auto-saves to `~/.config/tui-notes/notes.json`
+- **Move Mode** — Rearrange notes freely, even to empty slots
+- **Export** — Export all notes to Markdown (`Ctrl+E`)
+- **Keyboard-driven** — Full operation without mouse
 
 ## Installation
 
 ```bash
-# Clone the repository
-git clone <repository-url>
+# Clone and install
+git clone https://github.com/douglas/tui-notes.git
 cd tui-notes
+pip install -e .
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python -m tui_notes
+# Or with pipx (recommended for CLI tools)
+pipx install .
 ```
 
 ## Usage
 
 ```bash
-# Launch the application
 tui-notes
-
-# Your notes will be automatically saved in ~/.tui-notes/
 ```
 
-### Keyboard Shortcuts (Planned)
+## Keyboard Shortcuts
 
-- `Ctrl+N` - Create new note
-- `Tab` - Switch between notes
-- `Ctrl+D` - Delete current note
-- `Ctrl+C` - Clear note content
-- `Ctrl+Q` - Quit application
-- Arrow keys - Navigate and reorder notes
+| Key | Action |
+|-----|--------|
+| `a` | Add note at selected position |
+| `e` / `Enter` | Edit selected note |
+| `d` | Delete selected note (with confirmation) |
+| `c` | Change note color |
+| `m` | Enter Move mode (swap/reorder) |
+| `←` `↑` `↓` `→` | Navigate between slots |
+| `Ctrl+S` | Save notes manually |
+| `Ctrl+R` | Reload notes from disk |
+| `Ctrl+E` | Export to `~/tui-notes-export.md` |
+| `?` | Show help screen |
+| `Escape` | Cancel move mode |
+| `q` | Quit |
 
 ## Data Storage
 
-Notes are stored locally in `~/.tui-notes/notes.json` and persist across sessions.
+Notes are stored as JSON in the platform-specific config directory:
+
+| Platform | Path |
+|----------|------|
+| Linux | `~/.config/tui-notes/notes.json` |
+| macOS | `~/Library/Application Support/tui-notes/notes.json` |
+| Windows | `%APPDATA%/tui-notes/notes.json` |
+
+## Development
+
+```bash
+# Setup
+python -m venv venv
+source venv/bin/activate
+pip install -e .
+pip install -r requirements-dev.txt
+
+# Run
+python -m tui_notes
+
+# Tests
+pytest
+
+# Linting
+black tui_notes/ tests/
+isort tui_notes/ tests/
+pylint tui_notes/
+```
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.9+
 - Terminal with color support
-
-## Development Status
-
-🚧 **In Development** - This project is currently in the planning and initial implementation phase.
 
 ## License
 
-See LICENSE file for details.
-
-## Contributing
-
-Contributions welcome! Please open an issue or submit a pull request.
+MIT — see [LICENSE](LICENSE) file.
