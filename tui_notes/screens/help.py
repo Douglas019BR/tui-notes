@@ -18,31 +18,31 @@ class HelpScreen(ModalScreen[None]):
 
     HELP_TEXT = """\
 ╔══════════════════════════════════════╗
-║         TUI Notes - Help            ║
+║         TUI Notes - Help             ║
 ╠══════════════════════════════════════╣
-║                                     ║
-║  Navigation                         ║
-║  ← ↑ ↓ →    Move between slots     ║
-║                                     ║
-║  Notes                              ║
-║  a          Add note at position    ║
-║  e / Enter  Edit selected note      ║
-║  d          Delete selected note    ║
-║  c          Change note color       ║
-║                                     ║
-║  Organization                       ║
-║  m          Move mode (swap notes)  ║
-║  Escape     Cancel move mode        ║
-║                                     ║
-║  File                               ║
-║  Ctrl+S     Save notes              ║
-║  Ctrl+R     Reload notes            ║
-║  Ctrl+E     Export to markdown      ║
-║                                     ║
-║  Other                              ║
-║  ?          Show this help          ║
-║  q          Quit                    ║
-║                                     ║
+║                                      ║
+║  Navigation                          ║
+║  ← ↑ ↓ →    Move between slots       ║
+║                                      ║
+║  Notes                               ║
+║  a          Add note at position     ║
+║  e / Enter  Edit selected note       ║
+║  d          Delete selected note     ║
+║  c          Change note color        ║
+║                                      ║
+║  Organization                        ║
+║  m          Move mode (swap notes)   ║
+║  Escape     Cancel move mode         ║
+║                                      ║
+║  File                                ║
+║  Ctrl+S     Save notes               ║
+║  Ctrl+R     Reload notes             ║
+║  Ctrl+E     Export to markdown       ║
+║                                      ║
+║  Other                               ║
+║  ?          Show this help           ║
+║  q          Quit                     ║
+║                                      ║
 ╚══════════════════════════════════════╝\
 """
 

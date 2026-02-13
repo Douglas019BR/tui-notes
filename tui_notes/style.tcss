@@ -196,7 +196,7 @@ ColorPickerScreen {
 }
 
 #color-modal {
-    width: 60;
+    width: 76;
     height: auto;
     background: $surface;
     border: thick $primary;
