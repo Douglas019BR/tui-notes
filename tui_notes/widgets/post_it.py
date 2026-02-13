@@ -26,7 +26,7 @@ class PostIt(Container, can_focus=True):
         title: str = "",
         content: str = "",
         color_index: int | None = None,
-        **kwargs: object,
+        **kwargs: Any,
     ) -> None:
         """Initialize a post-it note.
 

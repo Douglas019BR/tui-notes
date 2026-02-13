@@ -6,13 +6,13 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   quality:
     name: Code Quality
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        tool: [pylint, ruff, isort, mypy]
     steps:
       - uses: actions/checkout@v4
 
@@ -20,28 +20,24 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
           pip install -e .
 
       - name: Run pylint
-        if: matrix.tool == 'pylint'
         run: pylint tui_notes/
 
-      - name: Run ruff
-        if: matrix.tool == 'ruff'
-        run: ruff check tui_notes/
+      - name: Run black
+        run: black --check --diff tui_notes/
 
       - name: Run isort
-        if: matrix.tool == 'isort'
         run: isort --check-only --diff tui_notes/
 
       - name: Run mypy
-        if: matrix.tool == 'mypy'
         run: mypy tui_notes/
 
   tests:
@@ -55,10 +51,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
           pip install -e .

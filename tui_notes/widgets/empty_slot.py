@@ -1,12 +1,14 @@
 """Empty slot placeholder widget."""
 
+from typing import Any
+
 from textual.widgets import Static
 
 
 class EmptySlot(Static, can_focus=True):
     """Placeholder widget for an empty position in the post-it grid."""
 
-    def __init__(self, **kwargs: object) -> None:
+    def __init__(self, **kwargs: Any) -> None:
         """Initialize an empty slot with placeholder text.
 
         Args:

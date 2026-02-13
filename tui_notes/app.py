@@ -75,7 +75,7 @@ class NotesApp(App):
         Returns:
             List of PostIt widgets currently in the grid.
         """
-        return list(self.query("PostIt"))
+        return list(self.query(PostIt))
 
     def _focus_first(self) -> None:
         """Focus the first child in the grid."""
