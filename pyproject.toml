@@ -41,8 +41,8 @@ dev = [
 tui-notes = "tui_notes.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/douglas/tui-notes"
-Repository = "https://github.com/douglas/tui-notes"
+Homepage = "https://github.com/Douglas019BR/tui-notes"
+Repository = "https://github.com/Douglas019BR/tui-notes"
 
 [tool.hatch.build.targets.wheel]
 packages = ["tui_notes"]
