@@ -77,11 +77,6 @@ PostIt.moving {
     opacity: 0.9;
 }
 
-PostIt.dragging {
-    border: double #2196f3;
-    opacity: 0.7;
-}
-
 /* Edit Modal */
 #edit-modal {
     width: 60;
@@ -167,4 +162,63 @@ EditPostItScreen {
 
 ConfirmScreen {
     align: center middle;
+}
+
+/* Help Modal */
+HelpScreen {
+    align: center middle;
+}
+
+#help-modal {
+    width: 46;
+    height: auto;
+    background: $surface;
+    border: thick $primary;
+    padding: 1 2;
+}
+
+#help-text {
+    width: 100%;
+    height: auto;
+}
+
+#help-close-hint {
+    text-align: center;
+    color: $text-muted;
+    width: 100%;
+    height: auto;
+    padding: 1 0 0 0;
+}
+
+/* Color Picker Modal */
+ColorPickerScreen {
+    align: center middle;
+}
+
+#color-modal {
+    width: 60;
+    height: auto;
+    background: $surface;
+    border: thick $primary;
+    padding: 1 2;
+}
+
+#color-modal-title {
+    text-style: bold;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 0 0 1 0;
+}
+
+#color-options {
+    width: 100%;
+    height: auto;
+    align-horizontal: center;
+}
+
+.color-btn {
+    margin: 0 1;
+    min-width: 8;
+    color: #212121;
 }

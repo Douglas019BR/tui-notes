@@ -50,3 +50,25 @@ packages = ["tui_notes"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pylint.main]
+disable = [
+    "C0114",  # missing-module-docstring
+    "C0115",  # missing-class-docstring
+    "C0116",  # missing-function-docstring
+    "R0903",  # too-few-public-methods
+    "W0613",  # unused-argument
+    "W0718",  # broad-exception-caught
+]
+max-line-length = 100
+
+[tool.pylint."messages control"]
+extension-pkg-whitelist = ["textual"]

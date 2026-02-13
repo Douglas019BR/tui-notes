@@ -178,14 +178,14 @@ DEFAULT_NOTE_TITLE = "Untitled Note"
 ### Phase 1: Foundation
 - [x] Set up project structure
 - [x] Implement data models
-- [ ] Create storage layer with JSON persistence
-- [ ] Write basic tests for storage
+- [x] Create storage layer with JSON persistence
+- [x] Write basic tests for storage
 
 ### Phase 2: Basic UI
 - [x] Create main Textual app skeleton
 - [x] Implement single note card widget
 - [x] Add note list container
-- [ ] Test loading/saving notes
+- [x] Test loading/saving notes
 
 ### Phase 3: Core Features
 - [x] Add note creation
@@ -200,11 +200,11 @@ DEFAULT_NOTE_TITLE = "Untitled Note"
 - [ ] Note categories/tags (future)
 
 ### Phase 5: Polish
-- [ ] Error handling
+- [x] Error handling
 - [x] User feedback (toasts/notifications)
 - [x] Themes/colors
 - [ ] Performance optimization
-- [ ] Comprehensive testing
+- [x] Comprehensive testing
 
 ## Technical Considerations
 
@@ -276,34 +276,41 @@ mypy tui_notes/
 - **Why local files over cloud?**: Privacy, offline-first, simplicity, no dependencies
 - **Data location**: User home directory follows Unix convention for user data
 - **Swap by data, not by widget**: Textual não suporta `move_before` — swap de post-its troca title/content entre widgets
-- **Drag & drop via mouse events**: Textual não tem drag nativo — implementação parcial via `on_mouse_down`/`on_mouse_up` (não funcional ainda)
 
 ## Current Implementation Status
 
-### Concluído (PLAN 01-05)
+### Concluído (PLAN 01-09 + Refactoring)
 - ✅ Estrutura do projeto com pyproject.toml, entry point `tui-notes`
 - ✅ Grid 3x3 com widget PostIt (Container, propriedades reativas)
 - ✅ 6 cores alternadas (amarelo, verde, azul, rosa, laranja, roxo)
 - ✅ EmptySlot placeholder em posições vazias
 - ✅ Modal de edição (EditPostItScreen) com Input + TextArea
 - ✅ Adicionar (`a`) e remover (`d`, com confirmação) post-its
-- ✅ Rearranjo automático ao remover
-- ✅ Modo Move (`m` + setas) com swap de dados entre post-its
+- ✅ Grid sempre mantém 9 filhos (PostIt + EmptySlot)
+- ✅ Modo Move (`m` + setas) com swap entre PostIt↔PostIt e PostIt↔EmptySlot
 - ✅ Navegação por setas no modo normal
-- ✅ Feedback visual: foco (borda branca), moving (borda laranja), dragging (borda azul)
+- ✅ Feedback visual: foco (borda branca), moving (borda laranja)
+- ✅ Persistência JSON em ~/.config/tui-notes/ (atomic writes)
+- ✅ Auto-save em add/delete/edit/move + Ctrl+S/Ctrl+R
+- ✅ Cores personalizadas (`c` — 6 cores com modal)
+- ✅ Exportação Markdown (`Ctrl+E`)
+- ✅ Help Screen (`?`)
+- ✅ 30 testes (pytest), pylint 10/10, black + isort
+- ✅ README.md completo, pip install funcional
+- ✅ Refactoring SOLID/DRY/KISS (widgets/, screens/, constants.py)
+- ✅ Type hints e docstrings em todos os métodos
 
 ### Pendente
-- ⚠️ Drag & drop (implementado mas não funcional)
-- ⚠️ Swap de post-it com EmptySlot no modo Move
-- ⚠️ Atalhos numéricos (1-9) para posição direta
-- 📋 PLAN 06: Persistência (JSON em ~/.tui-notes/)
-- 📋 PLAN 07: Polish
-- 📋 PLAN 08: Testing
-- 📋 PLAN 09: Deployment
+- ⚠️ Atalhos numéricos (1-9) para posição direta (PLAN 05)
+- ⚠️ Busca e filtros (PLAN 07.2)
+- ⚠️ Temas claro/escuro (PLAN 07.3)
+- 📋 CHANGELOG.md (PLAN 09)
+- 📋 PyPI publishing (PLAN 09, opcional)
+- 📋 GitHub Release + CI/CD (PLAN 09, opcional)
+- 📋 Testes em macOS/Windows (PLAN 09)
 
-### Known Issues
-- Grid pode ficar com menos de 9 filhos após múltiplas operações de add/delete
-- Drag & drop: mouse_down inicia mas mouse_up não finaliza corretamente o swap
+### Não Implementado (decisão consciente)
+- ~~Drag & Drop~~ — Textual não suporta nativamente
 
 ## Future Enhancements
 

@@ -6,39 +6,38 @@ Garantir qualidade e confiabilidade do código
 ## Tarefas
 
 ### 8.1 Configuração de Testes
-- [ ] Instalar pytest
-- [ ] Instalar textual[dev] para testes
-- [ ] Criar estrutura de testes em `tests/`
-- [ ] Configurar pytest.ini ou pyproject.toml
+- [x] Instalar pytest
+- [x] Instalar pytest-asyncio para testes async
+- [x] Criar estrutura de testes em `tests/`
+- [x] Configurar pyproject.toml (asyncio_mode, testpaths)
 
 ### 8.2 Testes Unitários
-- [ ] Testar classe PostIt
-- [ ] Testar gerenciamento de posições
-- [ ] Testar lógica de rearranjo
-- [ ] Testar lógica de swap/move
+- [x] Testar classe PostIt (cor, título)
+- [x] Testar gerenciamento de posições (grid 9 children)
+- [x] Testar lógica de add/delete (grid mantém 9)
+- [x] Testar lógica de move mode
 
 ### 8.3 Testes de Persistência
-- [ ] Testar salvamento de dados
-- [ ] Testar carregamento de dados
-- [ ] Testar criação de diretório
-- [ ] Testar tratamento de erros
+- [x] Testar salvamento de dados (JSON válido, unicode)
+- [x] Testar carregamento de dados (roundtrip, color_index)
+- [x] Testar criação de diretório (data dir/file paths)
+- [x] Testar tratamento de erros (JSON inválido, estrutura errada, notas inválidas)
 
 ### 8.4 Testes de Integração
-- [ ] Testar fluxo completo: adicionar → editar → salvar
-- [ ] Testar fluxo: adicionar → mover → remover
-- [ ] Testar edge cases (grid cheio, grid vazio)
+- [x] Testar fluxo completo: adicionar notas únicas
+- [x] Testar fluxo: adicionar → deletar (grid mantém 9)
+- [x] Testar edge cases (grid cheio com 9+, grid vazio)
 
 ### 8.5 Linting e Formatação
-- [ ] Configurar black (formatação)
-- [ ] Configurar ruff ou flake8 (linting)
-- [ ] Configurar mypy (type checking)
-- [ ] Adicionar pre-commit hooks (opcional)
+- [x] Configurar black (formatação)
+- [x] Configurar pylint (linting) — 10/10
+- [x] Configurar isort (import sorting)
+- [x] Criar requirements-dev.txt com todas as ferramentas
 
 ### 8.6 Documentação do Código
-- [ ] Adicionar docstrings em classes principais
-- [ ] Adicionar type hints
-- [ ] Comentários em lógica complexa
-- [ ] Documentar estrutura de dados
+- [x] Docstrings em classes principais
+- [x] Type hints
+- [x] Documentar estrutura de dados (storage.py)
 
 ## Resultado Esperado
 Código bem testado, formatado e documentado seguindo boas práticas

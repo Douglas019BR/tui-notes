@@ -24,9 +24,7 @@ Implementar funcionalidade de mover post-its entre posições do grid
 - [x] Confirmar com Enter, cancelar com Escape
 
 ### 5.4 Alternativa: Drag & Drop
-- [ ] ⚠️ Implementado mas não funcional — Textual não tem drag & drop nativo; implementação via mouse events precisa de ajustes
-- [ ] Clicar e arrastar post-it
-- [ ] Soltar em nova posição
+- [x] ~~Não será implementado~~ — Textual não suporta drag & drop nativo; código removido
 
 ### 5.5 Atalhos de Posição
 - [ ] Números 1-9: mover post-it selecionado para posição específica
