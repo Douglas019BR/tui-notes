@@ -23,5 +23,7 @@ htmlcov/
 # Textual
 .textual/
 
-
+.env
 venv
+TODO.md
+CONTEXT.md
