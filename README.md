@@ -5,6 +5,8 @@ A terminal-based post-it notes application — organize your thoughts in a 3×3 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+![tui-notes demo](docs/demo.gif)
+
 ## Features
 
 - **3×3 Post-it Grid** — Up to 9 notes displayed simultaneously
@@ -17,13 +19,19 @@ A terminal-based post-it notes application — organize your thoughts in a 3×3 
 ## Installation
 
 ```bash
-# Clone and install
-git clone https://github.com/douglas/tui-notes.git
+# Recommended for CLI tools (isolated environment, globally available)
+pipx install tui-notes
+
+# Or with pip in a virtual environment
+pip install tui-notes
+```
+
+### From source
+
+```bash
+git clone https://github.com/Douglas019BR/tui-notes.git
 cd tui-notes
 pip install -e .
-
-# Or with pipx (recommended for CLI tools)
-pipx install .
 ```
 
 ## Usage
@@ -87,4 +95,4 @@ pylint tui_notes/
 
 ## License
 
-MIT — see [LICENSE](LICENSE) file.
+[MIT - LICENSE](LICENSE)
